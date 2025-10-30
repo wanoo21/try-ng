@@ -17,7 +17,7 @@ PPS: If you find this repo useful, please star it ⭐️
 
 ## Feature branches
 
-- [try/signal-form](/tree/try/signal-form) - Try out Angular Signal Forms
+- `try/signal-form` - Try out Angular Signal Forms
 
 ## Run tasks
 
