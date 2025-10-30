@@ -1,30 +1,22 @@
 import { CurrencyPipe, JsonPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { BrnSelectImports } from '@spartan-ng/brain/select';
+import { Field, form } from '@angular/forms/signals';
 import { HlmButton } from '@try-ng/ui/button';
 import { HlmCardImports } from '@try-ng/ui/card';
-import { HlmCheckboxImports } from '@try-ng/ui/checkbox';
 import { HlmFieldImports } from '@try-ng/ui/field';
 import { HlmInput } from '@try-ng/ui/input';
-import { HlmRadioGroupImports } from '@try-ng/ui/radio-group';
-import { HlmSelectImports } from '@try-ng/ui/select';
-import { HlmSlider } from '@try-ng/ui/slider';
 import { HlmTextarea } from '@try-ng/ui/textarea';
 
 @Component({
   imports: [
     HlmInput,
     HlmButton,
-    BrnSelectImports,
-    HlmSelectImports,
-    HlmCheckboxImports,
     HlmCardImports,
     HlmFieldImports,
     HlmTextarea,
-    HlmSlider,
     CurrencyPipe,
-    HlmRadioGroupImports,
     JsonPipe,
+    Field,
   ],
   templateUrl: './signal-form.html',
   styles: ``,
@@ -54,4 +46,21 @@ export default class SignalForm {
     },
     subscriptionPlan: 'monthly',
   });
+
+  protected readonly myForm = form(this.data, (path) => {
+    // required(path.paymentMethod.nameOnCard, {
+    //   message: "Please enter the cardholder's full name",
+    // });
+  });
+
+  async onSubmit(event: Event) {
+    event.preventDefault();
+    // await submit(this.myForm, async () => {
+    //   return new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       resolve(null); // No errors mean success
+    //     }, 1000);
+    //   });
+    // });
+  }
 }
