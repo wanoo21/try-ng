@@ -1,6 +1,6 @@
-<div class="min-h-screen bg-background p-8">
-  <div class="max-w-5xl mx-auto">
-    <div hlmCard>
+<div class="min-h-screen bg-background p-8 flex justify-center">
+  <div class="max-w-5xl flex-1 flex gap-4 items-start">
+    <div hlmCard class="w-full">
       <form hlmCardContent id="myForm">
         <div hlmFieldGroup>
           <fieldset hlmFieldSet>
@@ -261,16 +261,22 @@
         </div>
       </form>
       <!-- Actions -->
-      <div
-        hlmCardFooter
-        hlmField
-        orientation="horizontal"
-        class="flex gap-3 pt-4 border-t"
-      >
-        <button type="submit" form="myForm" hlmBtn>Submit Form</button>
-        <button type="reset" form="myForm" hlmBtn variant="outline">
-          Reset
-        </button>
+
+      <div hlmCardFooter>
+        <div hlmField orientation="horizontal" class="flex gap-3 pt-4 border-t">
+          <button type="submit" form="myForm" hlmBtn>Submit Form</button>
+          <button type="reset" form="myForm" hlmBtn variant="outline">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+    <div hlmCard class="sticky top-4">
+      <div hlmCardHeader>
+        <h1 hlmCardTitle>Form Data</h1>
+      </div>
+      <div hlmCardContent>
+        <pre>{{ data() | json }}</pre>
       </div>
     </div>
   </div>

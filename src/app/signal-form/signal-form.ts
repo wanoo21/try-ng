@@ -1,5 +1,5 @@
-import { CurrencyPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { CurrencyPipe, JsonPipe } from '@angular/common';
+import { Component, signal } from '@angular/core';
 import { BrnSelectImports } from '@spartan-ng/brain/select';
 import { HlmButton } from '@try-ng/ui/button';
 import { HlmCardImports } from '@try-ng/ui/card';
@@ -24,8 +24,34 @@ import { HlmTextarea } from '@try-ng/ui/textarea';
     HlmSlider,
     CurrencyPipe,
     HlmRadioGroupImports,
+    JsonPipe,
   ],
   templateUrl: './signal-form.html',
   styles: ``,
 })
-export default class SignalForm {}
+export default class SignalForm {
+  readonly data = signal({
+    paymentMethod: {
+      nameOnCard: '',
+      cardNumber: '',
+      expiryMonth: '',
+      expiryYear: '',
+      cvv: '',
+    },
+    billingAddress: {
+      sameAsShippingAddress: true,
+      orderComments: '',
+      serviceFeedback: '',
+    },
+    preferences: {
+      budgetRange: 500,
+      desktopDisplayItems: {
+        hardDisks: false,
+        externalDisks: false,
+        cdsDvdsIpods: false,
+        connectedServers: false,
+      },
+    },
+    subscriptionPlan: 'monthly',
+  });
+}
