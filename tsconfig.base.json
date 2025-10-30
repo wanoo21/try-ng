@@ -1,0 +1,89 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": false,
+    "target": "es2022",
+    "module": "preserve",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@try-ng/ui/accordion": [
+        "libs/ui/ui-accordion-helm/src/index.ts"
+      ],
+      "@try-ng/ui/utils": [
+        "libs/ui/ui-utils-helm/src/index.ts"
+      ],
+      "@try-ng/ui/icon": [
+        "libs/ui/ui-icon-helm/src/index.ts"
+      ],
+      "@try-ng/ui/field": [
+        "libs/ui/ui-field-helm/src/index.ts"
+      ],
+      "@try-ng/ui/label": [
+        "libs/ui/ui-label-helm/src/index.ts"
+      ],
+      "@try-ng/ui/separator": [
+        "libs/ui/ui-separator-helm/src/index.ts"
+      ],
+      "@try-ng/ui/input": [
+        "libs/ui/ui-input-helm/src/index.ts"
+      ],
+      "@try-ng/ui/form-field": [
+        "libs/ui/ui-form-field-helm/src/index.ts"
+      ],
+      "@try-ng/ui/select": [
+        "libs/ui/ui-select-helm/src/index.ts"
+      ],
+      "@try-ng/ui/button": [
+        "libs/ui/ui-button-helm/src/index.ts"
+      ],
+      "@try-ng/ui/textarea": [
+        "libs/ui/ui-textarea-helm/src/index.ts"
+      ],
+      "@try-ng/ui/switch": [
+        "libs/ui/ui-switch-helm/src/index.ts"
+      ],
+      "@try-ng/ui/radio-group": [
+        "libs/ui/ui-radio-group-helm/src/index.ts"
+      ],
+      "@try-ng/ui/checkbox": [
+        "libs/ui/ui-checkbox-helm/src/index.ts"
+      ],
+      "@try-ng/ui/dialog": [
+        "libs/ui/ui-dialog-helm/src/index.ts"
+      ],
+      "@try-ng/ui/popover": [
+        "libs/ui/ui-popover-helm/src/index.ts"
+      ],
+      "@try-ng/ui/tooltip": [
+        "libs/ui/ui-tooltip-helm/src/index.ts"
+      ],
+      "@try-ng/ui/toggle": [
+        "libs/ui/ui-toggle-helm/src/index.ts"
+      ],
+      "@try-ng/ui/tabs": [
+        "libs/ui/ui-tabs-helm/src/index.ts"
+      ],
+      "@try-ng/ui/card": [
+        "libs/ui/ui-card-helm/src/index.ts"
+      ],
+      "@try-ng/ui/badge": [
+        "libs/ui/ui-badge-helm/src/index.ts"
+      ],
+      "@try-ng/ui/alert": [
+        "libs/ui/ui-alert-helm/src/index.ts"
+      ],
+      "@try-ng/ui/slider": [
+        "libs/ui/ui-slider-helm/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
+}

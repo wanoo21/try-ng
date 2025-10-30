@@ -1,0 +1,6 @@
+{
+  "componentsPath": "libs/ui",
+  "buildable": false,
+  "generateAs": "library",
+  "importAlias": "@try-ng/ui"
+}
