@@ -1,0 +1,287 @@
+<div class="min-h-screen bg-background p-8 flex justify-center">
+  <div class="max-w-5xl flex-1 flex gap-4 items-start">
+    <div hlmCard class="w-full">
+      <form hlmCardContent id="myForm" (submit)="onSubmit($event)" novalidate>
+        <div hlmFieldGroup>
+          <fieldset hlmFieldSet>
+            <legend hlmFieldLegend>Payment Method</legend>
+            <p hlmFieldDescription>All transactions are secure and encrypted</p>
+
+            <div hlmFieldGroup>
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  hlmField
+                  [attr.data-invalid]="myForm.paymentMethod.nameOnCard().invalid() && myForm.paymentMethod.nameOnCard().touched()"
+                >
+                  <label hlmFieldLabel for="field-preview-name-on-card"
+                    >Name on card</label
+                  >
+                  <input
+                    hlmInput
+                    [field]="myForm.paymentMethod.nameOnCard"
+                    placeholder="John Doe"
+                    id="field-preview-name-on-card"
+                  />
+                  <hlm-field-error>
+                    {{ myForm.paymentMethod.nameOnCard().errors() | json }}
+                  </hlm-field-error>
+                </div>
+                <div hlmField>
+                  <label hlmFieldLabel for="field-preview-card-number"
+                    >Card number</label
+                  >
+                  <input
+                    hlmInput
+                    placeholder="1234 1234 1234 1234"
+                    id="field-preview-card-number"
+                  />
+                  <hlm-field-error>Invalid card number format</hlm-field-error>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-4">
+                <div hlmField>
+                  <label hlmFieldLabel for="field-exp-month--trigger"
+                    >Expiry Month</label
+                  >
+                  <input
+                    id="field-exp-month"
+                    hlmInput
+                    [field]="myForm.paymentMethod.expiryMonth"
+                    placeholder="MM"
+                    type="number"
+                    [min]="1"
+                    [max]="12"
+                    [step]="1"
+                  />
+                  <hlm-field-error
+                    >{{ myForm.paymentMethod.expiryMonth().errors() | json
+                    }}</hlm-field-error
+                  >
+                </div>
+                <div hlmField>
+                  <label hlmFieldLabel for="field-exp-year--trigger"
+                    >Expiry Year</label
+                  >
+                  <input
+                    type="number"
+                    id="field-exp-year"
+                    hlmInput
+                    placeholder="YYYY"
+                  />
+
+                  <hlm-field-error>Please select expiry year</hlm-field-error>
+                </div>
+                <div hlmField>
+                  <label hlmFieldLabel for="field-preview-cvv">CVV</label>
+                  <input hlmInput placeholder="123" id="field-preview-cvv" />
+                  <hlm-field-error>CVV must be 3 digits</hlm-field-error>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <hlm-field-separator />
+          <fieldset hlmFieldSet>
+            <legend hlmFieldLegend>Billing Address</legend>
+            <p hlmFieldDescription>
+              The billing address associated with your payment method
+            </p>
+            <div hlmFieldGroup>
+              <div hlmField orientation="horizontal">
+                <input type="checkbox" id="field-preview-billing-address" />
+                <label hlmFieldLabel for="field-preview-billing-address"
+                  >Same as shipping address</label
+                >
+              </div>
+            </div>
+          </fieldset>
+          <hlm-field-separator />
+          <fieldset hlmFieldSet>
+            <legend hlmFieldLegend>Additional Information</legend>
+            <div hlmFieldGroup>
+              <div class="grid grid-cols-2 gap-4">
+                <div hlmField>
+                  <label hlmFieldLabel for="field-preview-comments"
+                    >Order Comments</label
+                  >
+                  <textarea
+                    hlmTextarea
+                    class="resize-none"
+                    id="field-preview-comments"
+                    placeholder="Special delivery instructions..."
+                  ></textarea>
+                  <p hlmFieldDescription>
+                    Add any special instructions for your order
+                  </p>
+                  <hlm-field-error
+                    >Comments are too long (max 500 characters)
+                  </hlm-field-error>
+                </div>
+                <div hlmField>
+                  <label hlmFieldLabel for="field-input-preview-feedback"
+                    >Service Feedback</label
+                  >
+                  <textarea
+                    hlmTextarea
+                    class="resize-none"
+                    id="field-input-preview-feedback"
+                    placeholder="Your feedback helps us improve..."
+                  ></textarea>
+                  <p hlmFieldDescription>
+                    Share your thoughts about our service
+                  </p>
+                  <hlm-field-error
+                    >Please provide feedback (minimum 10 characters)
+                  </hlm-field-error>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <hlm-field-separator />
+          <fieldset hlmFieldSet>
+            <legend hlmFieldLegend>Preferences</legend>
+            <div hlmFieldGroup>
+              <div hlmField>
+                <label hlmFieldLabel for="field-budget-slider"
+                  >Budget Range</label
+                >
+                <p hlmFieldDescription>
+                  Set your budget range ($0 - {{ data().preferences.budgetRange
+                  | currency: 'USD' }})
+                </p>
+                <input
+                  type="range"
+                  id="field-budget-slider"
+                  [field]="myForm.preferences.budgetRange"
+                  [min]="0"
+                  [max]="2000"
+                  [step]="10"
+                />
+                <!--                <hlm-slider [max]="2000" [step]="10" id="field-budget-slider" [field]="myForm.preferences.budgetRange" />-->
+                <hlm-field-error>Budget must be at least $50</hlm-field-error>
+              </div>
+            </div>
+          </fieldset>
+          <hlm-field-separator />
+          <fieldset hlmFieldSet>
+            <legend hlmFieldLegend variant="label">
+              Desktop Display Items
+            </legend>
+            <p hlmFieldDescription>
+              Select the items you want to show on the desktop
+            </p>
+            <div hlmFieldGroup class="gap-3">
+              <div class="grid grid-cols-2 gap-3">
+                <div hlmField orientation="horizontal">
+                  <input type="checkbox" id="field-hard-disks" />
+                  <!--                  <hlm-checkbox id="field-hard-disks" />-->
+                  <label
+                    hlmFieldLabel
+                    for="field-hard-disks"
+                    class="font-normal"
+                    >Hard disks</label
+                  >
+                </div>
+                <div hlmField orientation="horizontal">
+                  <input type="checkbox" id="field-external-disks" />
+                  <label
+                    hlmFieldLabel
+                    for="field-external-disks"
+                    class="font-normal"
+                    >External disks</label
+                  >
+                </div>
+                <div hlmField orientation="horizontal">
+                  <input type="checkbox" id="field-cds-dvds-ipods" />
+                  <label
+                    hlmFieldLabel
+                    for="field-cds-dvds-ipods"
+                    class="font-normal"
+                    >CDs, DVDs, and iPods</label
+                  >
+                </div>
+                <div hlmField orientation="horizontal">
+                  <input type="checkbox" id="field-connected-servers" />
+                  <label
+                    hlmFieldLabel
+                    for="field-connected-servers"
+                    class="font-normal"
+                    >Connected servers</label
+                  >
+                </div>
+              </div>
+              <hlm-field-error
+                >Please select at least one display item
+              </hlm-field-error>
+            </div>
+          </fieldset>
+          <hlm-field-separator />
+          <fieldset hlmFieldSet>
+            <label hlmFieldLabel for="plan-monthly">Subscription Plan</label>
+            <p hlmFieldDescription>
+              Yearly and lifetime plans offer significant savings
+            </p>
+            <div class="flex flex-col gap-3">
+              <div hlmField orientation="horizontal">
+                <input
+                  type="radio"
+                  value="monthly"
+                  id="plan-monthly"
+                  name="subscription-plan"
+                  [field]="myForm.subscriptionPlan"
+                />
+                <label hlmFieldLabel for="plan-monthly" class="font-normal"
+                  >Monthly ($9.99/month)</label
+                >
+              </div>
+              <div hlmField orientation="horizontal">
+                <input
+                  type="radio"
+                  value="yearly"
+                  id="plan-yearly"
+                  name="subscription-plan"
+                  [field]="myForm.subscriptionPlan"
+                />
+                <label hlmFieldLabel for="plan-yearly" class="font-normal"
+                  >Yearly ($99.99/year) - Save 17%</label
+                >
+              </div>
+              <div hlmField orientation="horizontal">
+                <input
+                  type="radio"
+                  value="lifetime"
+                  id="plan-lifetime"
+                  name="subscription-plan"
+                  [field]="myForm.subscriptionPlan"
+                />
+                <label hlmFieldLabel for="plan-lifetime" class="font-normal"
+                  >Lifetime ($299.99 one-time) - Best Value</label
+                >
+              </div>
+              <hlm-field-error
+                >Please select a subscription plan</hlm-field-error
+              >
+            </div>
+          </fieldset>
+        </div>
+      </form>
+      <!-- Actions -->
+
+      <div hlmCardFooter>
+        <div hlmField orientation="horizontal" class="flex gap-3 pt-4 border-t">
+          <button type="submit" form="myForm" hlmBtn>Submit Form</button>
+          <button type="reset" form="myForm" hlmBtn variant="outline">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+    <div hlmCard class="sticky top-4">
+      <div hlmCardHeader>
+        <h1 hlmCardTitle>Form Data</h1>
+      </div>
+      <div hlmCardContent>
+        <pre>{{ data() | json }}</pre>
+      </div>
+    </div>
+  </div>
+</div>
