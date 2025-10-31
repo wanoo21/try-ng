@@ -85,6 +85,9 @@
       ],
       "@try-ng/ui/sheet": [
         "libs/ui/ui-sheet-helm/src/index.ts"
+      ],
+      "@try-ng/ui/item": [
+        "libs/ui/ui-item-helm/src/index.ts"
       ]
     }
   },

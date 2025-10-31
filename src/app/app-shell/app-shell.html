@@ -1,0 +1,34 @@
+<div class="min-h-screen bg-background p-8 flex justify-center items-start">
+  <div class="w-full max-w-2xl mx-auto" hlmCard>
+    <div hlmCardContent>
+      <div hlmCardTitle>
+        <input
+          hlmInput
+          type="search"
+          placeholder="Not many features yet..."
+          disabled
+        />
+      </div>
+      <div hlmCardDescription class="space-y-2 my-4">
+        @for (feature of filteredFeatures(); track feature.href) {
+        <a
+          hlmItem
+          class="ease-in-out duration-500"
+          [attr.href]="feature.href"
+          animate.enter="animate-in"
+          animate.leave="animate-out"
+        >
+          <div hlmItemContent>
+            <div hlmItemTitle>{{ feature.title }}</div>
+            <p hlmItemDescription>{{ feature.description }}</p>
+          </div>
+          <div hlmItemActions>
+            <ng-icon hlm name="lucideChevronRight" size="sm" />
+          </div>
+        </a>
+        }
+      </div>
+    </div>
+    <div hlmCardFooter></div>
+  </div>
+</div>
