@@ -7,6 +7,14 @@ import { HlmFieldImports } from '@try-ng/ui/field';
 import { HlmInput } from '@try-ng/ui/input';
 import { HlmTextarea } from '@try-ng/ui/textarea';
 
+/**
+ * Related articles and videos:
+ *
+ * - https://www.angulararchitects.io/en/blog/all-about-angulars-new-signal-forms/
+ * - https://medium.com/@schnabelelisa0/angular-signal-forms-the-most-awaited-feature-is-here-161fd722f573
+ * - https://www.youtube.com/watch?v=gvL_mTQZIYE
+ * - https://next.angular.dev/essentials/signal-forms
+ */
 @Component({
   imports: [
     HlmInput,
