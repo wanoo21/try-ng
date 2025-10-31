@@ -79,6 +79,12 @@
       ],
       "@try-ng/ui/slider": [
         "libs/ui/ui-slider-helm/src/index.ts"
+      ],
+      "@try-ng/ui/sidebar": [
+        "libs/ui/ui-sidebar-helm/src/index.ts"
+      ],
+      "@try-ng/ui/sheet": [
+        "libs/ui/ui-sheet-helm/src/index.ts"
       ]
     }
   },
