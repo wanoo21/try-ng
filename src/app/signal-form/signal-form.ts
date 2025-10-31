@@ -1,10 +1,15 @@
 import { CurrencyPipe, JsonPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { Field, form } from '@angular/forms/signals';
+import { BrnSelectImports } from '@spartan-ng/brain/select';
 import { HlmButton } from '@try-ng/ui/button';
 import { HlmCardImports } from '@try-ng/ui/card';
+import { HlmCheckboxImports } from '@try-ng/ui/checkbox';
 import { HlmFieldImports } from '@try-ng/ui/field';
 import { HlmInput } from '@try-ng/ui/input';
+import { HlmRadioGroupImports } from '@try-ng/ui/radio-group';
+import { HlmSelectImports } from '@try-ng/ui/select';
+import { HlmSliderImports } from '@try-ng/ui/slider';
 import { HlmTextarea } from '@try-ng/ui/textarea';
 
 /**
@@ -25,6 +30,11 @@ import { HlmTextarea } from '@try-ng/ui/textarea';
     CurrencyPipe,
     JsonPipe,
     Field,
+    BrnSelectImports,
+    HlmSelectImports,
+    HlmCheckboxImports,
+    HlmSliderImports,
+    HlmRadioGroupImports,
   ],
   templateUrl: './signal-form.html',
   styles: ``,
