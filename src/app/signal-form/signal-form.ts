@@ -9,8 +9,10 @@ import { HlmFieldImports } from '@try-ng/ui/field';
 import { HlmInput } from '@try-ng/ui/input';
 import { HlmRadioGroupImports } from '@try-ng/ui/radio-group';
 import { HlmSelectImports } from '@try-ng/ui/select';
+import { HlmSidebarInset, HlmSidebarTrigger } from '@try-ng/ui/sidebar';
 import { HlmSliderImports } from '@try-ng/ui/slider';
 import { HlmTextarea } from '@try-ng/ui/textarea';
+import { Sidebar } from 'src/app/signal-form/sidebar/sidebar';
 
 /**
  * Related articles and videos:
@@ -35,6 +37,9 @@ import { HlmTextarea } from '@try-ng/ui/textarea';
     HlmCheckboxImports,
     HlmSliderImports,
     HlmRadioGroupImports,
+    Sidebar,
+    HlmSidebarTrigger,
+    HlmSidebarInset,
   ],
   templateUrl: './signal-form.html',
   styles: ``,

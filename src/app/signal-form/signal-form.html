@@ -1,286 +1,291 @@
-<div class="min-h-screen bg-background p-8 flex justify-center">
-  <div class="max-w-5xl flex-1 flex gap-4 items-start">
-    <div hlmCard class="w-full">
-      <form hlmCardContent id="myForm" (submit)="onSubmit($event)" novalidate>
-        <div hlmFieldGroup>
-          <fieldset hlmFieldSet>
-            <legend hlmFieldLegend>Payment Method</legend>
-            <p hlmFieldDescription>All transactions are secure and encrypted</p>
+<app-sidebar>
+  <main hlmSidebarInset>
+    <header class="flex h-12 items-center justify-between px-4">
+      <button hlmSidebarTrigger><span class="sr-only"></span></button>
+    </header>
+    <div class="max-w-6xl flex-1 flex gap-4 items-start w-full mx-auto">
+      <div hlmCard class="w-full">
+        <form hlmCardContent id="myForm" (submit)="onSubmit($event)" novalidate>
+          <div hlmFieldGroup>
+            <fieldset hlmFieldSet>
+              <legend hlmFieldLegend>Payment Method</legend>
+              <p hlmFieldDescription>All transactions are secure and encrypted</p>
 
-            <div hlmFieldGroup>
-              <div class="grid grid-cols-2 gap-4">
-                <div hlmField>
-                  <label hlmFieldLabel for="field-preview-name-on-card"
-                  >Name on card</label
-                  >
-                  <input
-                    hlmInput
-                    placeholder="John Doe"
-                    id="field-preview-name-on-card"
+              <div hlmFieldGroup>
+                <div class="grid grid-cols-2 gap-4">
+                  <div hlmField>
+                    <label hlmFieldLabel for="field-preview-name-on-card"
+                    >Name on card</label
+                    >
+                    <input
+                      hlmInput
+                      placeholder="John Doe"
+                      id="field-preview-name-on-card"
+                    />
+                    <hlm-field-error
+                    >Please enter the cardholder's full name
+                    </hlm-field-error
+                    >
+                  </div>
+                  <div hlmField>
+                    <label hlmFieldLabel for="field-preview-card-number"
+                    >Card number</label
+                    >
+                    <input
+                      hlmInput
+                      placeholder="1234 1234 1234 1234"
+                      id="field-preview-card-number"
+                    />
+                    <hlm-field-error>Invalid card number format</hlm-field-error>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                  <div hlmField>
+                    <label hlmFieldLabel for="field-exp-month--trigger"
+                    >Expiry Month</label
+                    >
+                    <brn-select
+                      id="field-exp-month"
+                      class="inline-block"
+                      placeholder="MM"
+                    >
+                      <hlm-select-trigger class="w-full">
+                        <hlm-select-value />
+                      </hlm-select-trigger>
+                      <hlm-select-content>
+                        <hlm-option value="01">01</hlm-option>
+                        <hlm-option value="02">02</hlm-option>
+                        <hlm-option value="03">03</hlm-option>
+                        <hlm-option value="04">04</hlm-option>
+                        <hlm-option value="05">05</hlm-option>
+                        <hlm-option value="06">06</hlm-option>
+                        <hlm-option value="07">07</hlm-option>
+                        <hlm-option value="08">08</hlm-option>
+                        <hlm-option value="09">09</hlm-option>
+                        <hlm-option value="10">10</hlm-option>
+                        <hlm-option value="11">11</hlm-option>
+                        <hlm-option value="12">12</hlm-option>
+                      </hlm-select-content>
+                    </brn-select>
+                    <hlm-field-error>Please select expiry month</hlm-field-error>
+                  </div>
+                  <div hlmField>
+                    <label hlmFieldLabel for="field-exp-year--trigger"
+                    >Expiry Year</label
+                    >
+                    <brn-select
+                      id="field-exp-year"
+                      class="inline-block"
+                      placeholder="YYYY"
+                    >
+                      <hlm-select-trigger class="w-full">
+                        <hlm-select-value />
+                      </hlm-select-trigger>
+                      <hlm-select-content>
+                        <hlm-option value="2024">2024</hlm-option>
+                        <hlm-option value="2025">2025</hlm-option>
+                        <hlm-option value="2026">2026</hlm-option>
+                        <hlm-option value="2027">2027</hlm-option>
+                        <hlm-option value="2028">2028</hlm-option>
+                        <hlm-option value="2029">2029</hlm-option>
+                      </hlm-select-content>
+                    </brn-select>
+                    <hlm-field-error>Please select expiry year</hlm-field-error>
+                  </div>
+                  <div hlmField>
+                    <label hlmFieldLabel for="field-preview-cvv">CVV</label>
+                    <input hlmInput placeholder="123" id="field-preview-cvv" />
+                    <hlm-field-error>CVV must be 3 digits</hlm-field-error>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <hlm-field-separator />
+            <fieldset hlmFieldSet>
+              <legend hlmFieldLegend>Billing Address</legend>
+              <p hlmFieldDescription>
+                The billing address associated with your payment method
+              </p>
+              <div hlmFieldGroup>
+                <div hlmField orientation="horizontal">
+                  <hlm-checkbox
+                    id="field-preview-billing-address"
                   />
-                  <hlm-field-error
-                  >Please enter the cardholder's full name
-                  </hlm-field-error
+                  <label hlmFieldLabel for="field-preview-billing-address"
+                  >Same as shipping address</label
                   >
-                </div>
-                <div hlmField>
-                  <label hlmFieldLabel for="field-preview-card-number"
-                  >Card number</label
-                  >
-                  <input
-                    hlmInput
-                    placeholder="1234 1234 1234 1234"
-                    id="field-preview-card-number"
-                  />
-                  <hlm-field-error>Invalid card number format</hlm-field-error>
                 </div>
               </div>
-              <div class="grid grid-cols-3 gap-4">
-                <div hlmField>
-                  <label hlmFieldLabel for="field-exp-month--trigger"
-                  >Expiry Month</label
-                  >
-                  <brn-select
-                    id="field-exp-month"
-                    class="inline-block"
-                    placeholder="MM"
-                  >
-                    <hlm-select-trigger class="w-full">
-                      <hlm-select-value />
-                    </hlm-select-trigger>
-                    <hlm-select-content>
-                      <hlm-option value="01">01</hlm-option>
-                      <hlm-option value="02">02</hlm-option>
-                      <hlm-option value="03">03</hlm-option>
-                      <hlm-option value="04">04</hlm-option>
-                      <hlm-option value="05">05</hlm-option>
-                      <hlm-option value="06">06</hlm-option>
-                      <hlm-option value="07">07</hlm-option>
-                      <hlm-option value="08">08</hlm-option>
-                      <hlm-option value="09">09</hlm-option>
-                      <hlm-option value="10">10</hlm-option>
-                      <hlm-option value="11">11</hlm-option>
-                      <hlm-option value="12">12</hlm-option>
-                    </hlm-select-content>
-                  </brn-select>
-                  <hlm-field-error>Please select expiry month</hlm-field-error>
-                </div>
-                <div hlmField>
-                  <label hlmFieldLabel for="field-exp-year--trigger"
-                  >Expiry Year</label
-                  >
-                  <brn-select
-                    id="field-exp-year"
-                    class="inline-block"
-                    placeholder="YYYY"
-                  >
-                    <hlm-select-trigger class="w-full">
-                      <hlm-select-value />
-                    </hlm-select-trigger>
-                    <hlm-select-content>
-                      <hlm-option value="2024">2024</hlm-option>
-                      <hlm-option value="2025">2025</hlm-option>
-                      <hlm-option value="2026">2026</hlm-option>
-                      <hlm-option value="2027">2027</hlm-option>
-                      <hlm-option value="2028">2028</hlm-option>
-                      <hlm-option value="2029">2029</hlm-option>
-                    </hlm-select-content>
-                  </brn-select>
-                  <hlm-field-error>Please select expiry year</hlm-field-error>
-                </div>
-                <div hlmField>
-                  <label hlmFieldLabel for="field-preview-cvv">CVV</label>
-                  <input hlmInput placeholder="123" id="field-preview-cvv" />
-                  <hlm-field-error>CVV must be 3 digits</hlm-field-error>
+            </fieldset>
+            <hlm-field-separator />
+            <fieldset hlmFieldSet>
+              <legend hlmFieldLegend>Additional Information</legend>
+              <div hlmFieldGroup>
+                <div class="grid grid-cols-2 gap-4">
+                  <div hlmField>
+                    <label hlmFieldLabel for="field-preview-comments"
+                    >Order Comments</label
+                    >
+                    <textarea
+                      hlmTextarea
+                      class="resize-none"
+                      id="field-preview-comments"
+                      placeholder="Special delivery instructions..."
+                    ></textarea>
+                    <p hlmFieldDescription>
+                      Add any special instructions for your order
+                    </p>
+                    <hlm-field-error
+                    >Comments are too long (max 500 characters)
+                    </hlm-field-error
+                    >
+                  </div>
+                  <div hlmField>
+                    <label hlmFieldLabel for="field-input-preview-feedback"
+                    >Service Feedback</label
+                    >
+                    <textarea
+                      hlmTextarea
+                      class="resize-none"
+                      id="field-input-preview-feedback"
+                      placeholder="Your feedback helps us improve..."
+                    ></textarea>
+                    <p hlmFieldDescription>
+                      Share your thoughts about our service
+                    </p>
+                    <hlm-field-error
+                    >Please provide feedback (minimum 10
+                      characters)
+                    </hlm-field-error
+                    >
+                  </div>
                 </div>
               </div>
-            </div>
-          </fieldset>
-          <hlm-field-separator />
-          <fieldset hlmFieldSet>
-            <legend hlmFieldLegend>Billing Address</legend>
-            <p hlmFieldDescription>
-              The billing address associated with your payment method
-            </p>
-            <div hlmFieldGroup>
-              <div hlmField orientation="horizontal">
-                <hlm-checkbox
-                  id="field-preview-billing-address"
-                />
-                <label hlmFieldLabel for="field-preview-billing-address"
-                >Same as shipping address</label
-                >
-              </div>
-            </div>
-          </fieldset>
-          <hlm-field-separator />
-          <fieldset hlmFieldSet>
-            <legend hlmFieldLegend>Additional Information</legend>
-            <div hlmFieldGroup>
-              <div class="grid grid-cols-2 gap-4">
+            </fieldset>
+            <hlm-field-separator />
+            <fieldset hlmFieldSet>
+              <legend hlmFieldLegend>Preferences</legend>
+              <div hlmFieldGroup>
                 <div hlmField>
-                  <label hlmFieldLabel for="field-preview-comments"
-                  >Order Comments</label
+                  <label hlmFieldLabel for="field-budget-slider"
+                  >Budget Range</label
                   >
-                  <textarea
-                    hlmTextarea
-                    class="resize-none"
-                    id="field-preview-comments"
-                    placeholder="Special delivery instructions..."
-                  ></textarea>
                   <p hlmFieldDescription>
-                    Add any special instructions for your order
+                    Set your budget range ($0 - {{ data().preferences.budgetRange | currency: 'USD' }})
                   </p>
-                  <hlm-field-error
-                  >Comments are too long (max 500 characters)
-                  </hlm-field-error
-                  >
-                </div>
-                <div hlmField>
-                  <label hlmFieldLabel for="field-input-preview-feedback"
-                  >Service Feedback</label
-                  >
-                  <textarea
-                    hlmTextarea
-                    class="resize-none"
-                    id="field-input-preview-feedback"
-                    placeholder="Your feedback helps us improve..."
-                  ></textarea>
-                  <p hlmFieldDescription>
-                    Share your thoughts about our service
-                  </p>
-                  <hlm-field-error
-                  >Please provide feedback (minimum 10
-                    characters)
-                  </hlm-field-error
-                  >
+                  <hlm-slider [max]="2000" [step]="10" [field]="myForm.preferences.budgetRange" id="field-budget-slider" />
+                  <hlm-field-error>Budget must be at least $50</hlm-field-error>
                 </div>
               </div>
-            </div>
-          </fieldset>
-          <hlm-field-separator />
-          <fieldset hlmFieldSet>
-            <legend hlmFieldLegend>Preferences</legend>
-            <div hlmFieldGroup>
-              <div hlmField>
-                <label hlmFieldLabel for="field-budget-slider"
-                >Budget Range</label
+            </fieldset>
+            <hlm-field-separator />
+            <fieldset hlmFieldSet>
+              <legend hlmFieldLegend variant="label">
+                Desktop Display Items
+              </legend>
+              <p hlmFieldDescription>
+                Select the items you want to show on the desktop
+              </p>
+              <div hlmFieldGroup class="gap-3">
+                <div class="grid grid-cols-2 gap-3">
+                  <div hlmField orientation="horizontal">
+                    <hlm-checkbox id="field-hard-disks" />
+                    <label
+                      hlmFieldLabel
+                      for="field-hard-disks"
+                      class="font-normal"
+                    >Hard disks</label
+                    >
+                  </div>
+                  <div hlmField orientation="horizontal">
+                    <hlm-checkbox id="field-external-disks" />
+                    <label
+                      hlmFieldLabel
+                      for="field-external-disks"
+                      class="font-normal"
+                    >External disks</label
+                    >
+                  </div>
+                  <div hlmField orientation="horizontal">
+                    <hlm-checkbox id="field-cds-dvds-ipods" />
+                    <label
+                      hlmFieldLabel
+                      for="field-cds-dvds-ipods"
+                      class="font-normal"
+                    >CDs, DVDs, and iPods</label
+                    >
+                  </div>
+                  <div hlmField orientation="horizontal">
+                    <hlm-checkbox id="field-connected-servers" />
+                    <label
+                      hlmFieldLabel
+                      for="field-connected-servers"
+                      class="font-normal"
+                    >Connected servers</label
+                    >
+                  </div>
+                </div>
+                <hlm-field-error
+                >Please select at least one display item
+                </hlm-field-error
                 >
-                <p hlmFieldDescription>
-                  Set your budget range ($0 - {{ data().preferences.budgetRange | currency: 'USD' }})
-                </p>
-                <hlm-slider [max]="2000" [step]="10" [field]="myForm.preferences.budgetRange" id="field-budget-slider" />
-                <hlm-field-error>Budget must be at least $50</hlm-field-error>
               </div>
-            </div>
-          </fieldset>
-          <hlm-field-separator />
-          <fieldset hlmFieldSet>
-            <legend hlmFieldLegend variant="label">
-              Desktop Display Items
-            </legend>
-            <p hlmFieldDescription>
-              Select the items you want to show on the desktop
-            </p>
-            <div hlmFieldGroup class="gap-3">
-              <div class="grid grid-cols-2 gap-3">
+            </fieldset>
+            <hlm-field-separator />
+            <fieldset hlmFieldSet>
+              <label hlmFieldLabel for="sub">Subscription Plan</label>
+              <p hlmFieldDescription>
+                Yearly and lifetime plans offer significant savings
+              </p>
+              <hlm-radio-group value="monthly" id="sub">
                 <div hlmField orientation="horizontal">
-                  <hlm-checkbox id="field-hard-disks" />
-                  <label
-                    hlmFieldLabel
-                    for="field-hard-disks"
-                    class="font-normal"
-                  >Hard disks</label
-                  >
-                </div>
-                <div hlmField orientation="horizontal">
-                  <hlm-checkbox id="field-external-disks" />
-                  <label
-                    hlmFieldLabel
-                    for="field-external-disks"
-                    class="font-normal"
-                  >External disks</label
-                  >
-                </div>
-                <div hlmField orientation="horizontal">
-                  <hlm-checkbox id="field-cds-dvds-ipods" />
-                  <label
-                    hlmFieldLabel
-                    for="field-cds-dvds-ipods"
-                    class="font-normal"
-                  >CDs, DVDs, and iPods</label
+                  <hlm-radio value="monthly" id="plan-monthly">
+                    <hlm-radio-indicator indicator />
+                  </hlm-radio>
+                  <label hlmFieldLabel for="plan-monthly" class="font-normal"
+                  >Monthly ($9.99/month)</label
                   >
                 </div>
                 <div hlmField orientation="horizontal">
-                  <hlm-checkbox id="field-connected-servers" />
-                  <label
-                    hlmFieldLabel
-                    for="field-connected-servers"
-                    class="font-normal"
-                  >Connected servers</label
+                  <hlm-radio value="yearly" id="plan-yearly">
+                    <hlm-radio-indicator indicator />
+                  </hlm-radio>
+                  <label hlmFieldLabel for="plan-yearly" class="font-normal"
+                  >Yearly ($99.99/year) - Save 17%</label
                   >
                 </div>
-              </div>
-              <hlm-field-error
-              >Please select at least one display item
-              </hlm-field-error
-              >
-            </div>
-          </fieldset>
-          <hlm-field-separator />
-          <fieldset hlmFieldSet>
-            <label hlmFieldLabel for="sub">Subscription Plan</label>
-            <p hlmFieldDescription>
-              Yearly and lifetime plans offer significant savings
-            </p>
-            <hlm-radio-group value="monthly" id="sub">
-              <div hlmField orientation="horizontal">
-                <hlm-radio value="monthly" id="plan-monthly">
-                  <hlm-radio-indicator indicator />
-                </hlm-radio>
-                <label hlmFieldLabel for="plan-monthly" class="font-normal"
-                >Monthly ($9.99/month)</label
-                >
-              </div>
-              <div hlmField orientation="horizontal">
-                <hlm-radio value="yearly" id="plan-yearly">
-                  <hlm-radio-indicator indicator />
-                </hlm-radio>
-                <label hlmFieldLabel for="plan-yearly" class="font-normal"
-                >Yearly ($99.99/year) - Save 17%</label
-                >
-              </div>
-              <div hlmField orientation="horizontal">
-                <hlm-radio value="lifetime" id="plan-lifetime">
-                  <hlm-radio-indicator indicator />
-                </hlm-radio>
-                <label hlmFieldLabel for="plan-lifetime" class="font-normal"
-                >Lifetime ($299.99 one-time) - Best Value</label
-                >
-              </div>
-            </hlm-radio-group>
-            <hlm-field-error>Please select a subscription plan</hlm-field-error>
-          </fieldset>
+                <div hlmField orientation="horizontal">
+                  <hlm-radio value="lifetime" id="plan-lifetime">
+                    <hlm-radio-indicator indicator />
+                  </hlm-radio>
+                  <label hlmFieldLabel for="plan-lifetime" class="font-normal"
+                  >Lifetime ($299.99 one-time) - Best Value</label
+                  >
+                </div>
+              </hlm-radio-group>
+              <hlm-field-error>Please select a subscription plan</hlm-field-error>
+            </fieldset>
+          </div>
+        </form>
+        <!-- Actions -->
+
+        <div hlmCardFooter>
+          <div hlmField orientation="horizontal" class="flex gap-3 pt-4 border-t">
+            <button type="submit" form="myForm" hlmBtn>Submit Form</button>
+            <button type="reset" form="myForm" hlmBtn variant="outline">
+              Reset
+            </button>
+          </div>
         </div>
-      </form>
-      <!-- Actions -->
-
-      <div hlmCardFooter>
-        <div hlmField orientation="horizontal" class="flex gap-3 pt-4 border-t">
-          <button type="submit" form="myForm" hlmBtn>Submit Form</button>
-          <button type="reset" form="myForm" hlmBtn variant="outline">
-            Reset
-          </button>
+      </div>
+      <div hlmCard class="sticky top-4">
+        <div hlmCardHeader>
+          <h1 hlmCardTitle>Form Data</h1>
+        </div>
+        <div hlmCardContent>
+          <pre>{{ data() | json }}</pre>
         </div>
       </div>
     </div>
-    <div hlmCard class="sticky top-4">
-      <div hlmCardHeader>
-        <h1 hlmCardTitle>Form Data</h1>
-      </div>
-      <div hlmCardContent>
-        <pre>{{ data() | json }}</pre>
-      </div>
-    </div>
-  </div>
-</div>
+  </main>
+</app-sidebar>

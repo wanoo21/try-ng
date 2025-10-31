@@ -88,6 +88,9 @@
       ],
       "@try-ng/ui/item": [
         "libs/ui/ui-item-helm/src/index.ts"
+      ],
+      "@try-ng/ui/skeleton": [
+        "libs/ui/ui-skeleton-helm/src/index.ts"
       ]
     }
   },

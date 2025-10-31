@@ -1,0 +1,65 @@
+<div hlmSidebarWrapper>
+  <hlm-sidebar variant="inset">
+    <div hlmSidebarContent>
+      <div hlmSidebarGroupContent>
+        <div class="p-4">
+          <input
+            hlmInput
+            type="search"
+            placeholder="Search validators"
+            [value]="search()"
+            (input)="search.set($event.target.value)"
+          />
+        </div>
+        <hlm-separator />
+        @for (category of filteredValidators(); track category.category) {
+        <div hlmSidebarGroup>
+          <div hlmSidebarGroupLabel>{{ category.category }}</div>
+          <div hlmSidebarGroupContent>
+            <ul hlmSidebarMenu>
+              @for (item of category.items; track item.name) {
+              <li hlmSidebarMenuItem>
+                <hlm-accordion type="single">
+                  <hlm-accordion-item>
+                    <h3 class="contents">
+                      <button hlmAccordionTrigger>
+                        {{ item.name }}
+                        <ng-icon name="lucideChevronDown" hlm hlmAccIcon />
+                      </button>
+                    </h3>
+                    <hlm-accordion-content>
+                      <div class="space-y-2">
+                        <p class="text-sm text-muted-foreground">
+                          {{ item.description }}
+                        </p>
+                        @if (item.examples) {
+                        <div class="space-y-1">
+                          <p class="text-xs font-medium">Examples:</p>
+                          @for (example of item.examples; track example) {
+                          <code
+                            class="block text-xs bg-muted p-2 rounded select-all"
+                            >{{ example }}</code
+                          >
+                          }
+                        </div>
+                        } @if (item.note) {
+                        <p class="text-xs text-muted-foreground italic">
+                          {{ item.note }}
+                        </p>
+                        }
+                      </div>
+                    </hlm-accordion-content>
+                  </hlm-accordion-item>
+                </hlm-accordion>
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+        }
+      </div>
+      <div hlmSidebarFooter></div>
+    </div>
+  </hlm-sidebar>
+  <ng-content />
+</div>
