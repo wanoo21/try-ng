@@ -11,24 +11,24 @@
       </div>
       <div hlmCardDescription class="space-y-2 my-4">
         @for (feature of filteredFeatures(); track feature.href) {
-        <a
-          hlmItem
-          class="ease-in-out duration-500"
-          [attr.href]="feature.href"
-          animate.enter="animate-in"
-          animate.leave="animate-out"
-        >
-          <div hlmItemContent>
-            <div hlmItemTitle>{{ feature.title }}</div>
-            <p hlmItemDescription>{{ feature.description }}</p>
-          </div>
-          <div hlmItemActions>
-            <ng-icon hlm name="lucideChevronRight" size="sm" />
-          </div>
-        </a>
+          <a
+            hlmItem
+            class="ease-in-out duration-500"
+            [attr.href]="feature.href"
+            animate.enter="animate-in"
+            animate.leave="animate-out"
+          >
+            <div hlmItemContent>
+              <div hlmItemTitle>{{ feature.title }}</div>
+              <p hlmItemDescription>{{ feature.description }}</p>
+            </div>
+            <div hlmItemActions>
+              <ng-icon hlm name="lucideChevronRight" size="sm" />
+            </div>
+          </a>
         }
       </div>
     </div>
-    <div hlmCardFooter></div>
+    <div hlmCardFooter> </div>
   </div>
 </div>

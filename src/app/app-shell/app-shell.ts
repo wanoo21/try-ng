@@ -5,10 +5,10 @@ import {
   lucideExternalLink,
   lucideSearch,
 } from '@ng-icons/lucide';
-import { HlmIconImports } from '@try-ng/ui/icon';
 import { HlmCardImports } from '@try-ng/ui/card';
-import { HlmItemImports } from '@try-ng/ui/item';
+import { HlmIconImports } from '@try-ng/ui/icon';
 import { HlmInputImports } from '@try-ng/ui/input';
+import { HlmItemImports } from '@try-ng/ui/item';
 
 @Component({
   imports: [HlmCardImports, HlmItemImports, HlmIconImports, HlmInputImports],

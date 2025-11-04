@@ -12,7 +12,8 @@ import { HlmSelectImports } from '@try-ng/ui/select';
 import { HlmSidebarInset, HlmSidebarTrigger } from '@try-ng/ui/sidebar';
 import { HlmSliderImports } from '@try-ng/ui/slider';
 import { HlmTextarea } from '@try-ng/ui/textarea';
-import { Sidebar } from 'src/app/signal-form/sidebar/sidebar';
+
+import { Sidebar } from './sidebar/sidebar';
 
 /**
  * Related articles and videos:

@@ -1,10 +1,10 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideChevronDown } from '@ng-icons/lucide';
 import { HlmAccordionImports } from '@try-ng/ui/accordion';
 import { HlmInput } from '@try-ng/ui/input';
 import { HlmSeparator } from '@try-ng/ui/separator';
 import { HlmSidebarImports, provideHlmSidebarConfig } from '@try-ng/ui/sidebar';
-import { lucideChevronDown } from '@ng-icons/lucide';
 
 @Component({
   selector: 'app-sidebar',
