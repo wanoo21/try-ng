@@ -1,0 +1,78 @@
+<div class="flex flex-col max-w-5xl mx-auto h-3/4 gap-10">
+  <header class="relative">
+    <div hlmCard class="bg-accent/50 h-60 relative overflow-clip">
+      <div hlmCardContent>
+        <ng-template appHeaderOutlet> Default Header Content </ng-template>
+      </div>
+    </div>
+    <hlm-avatar
+      class="absolute bottom-1 left-1 size-20 border-4 border-accent/50 rounded-xl"
+    >
+      <img
+        ngSrc="/assets/avatar.png"
+        fill
+        hlmAvatarImage
+        alt="avatar"
+        priority="low"
+      />
+      <span class="bg-black text-white" hlmAvatarFallback>IP</span>
+    </hlm-avatar>
+  </header>
+
+  <div class="flex flex-col flex-1 gap-10">
+    <div class="flex justify-center gap-10">
+      <nav hlmNavigationMenu>
+        <ul
+          hlmNavigationMenuList
+          class="border border-dashed rounded-md bg-accent/50"
+        >
+          @for (page of pages; track page.path) {
+          <li hlmNavigationMenuItem>
+            <a
+              hlmNavigationMenuLink
+              href="#"
+              (click)="importPage($event, page)"
+            >
+              {{ page.title }}
+            </a>
+          </li>
+          }
+        </ul>
+      </nav>
+
+      <nav hlmNavigationMenu>
+        <ul
+          hlmNavigationMenuList
+          class="border border-dashed rounded-md bg-accent/50"
+        >
+          <li hlmNavigationMenuItem>
+            <a hlmNavigationMenuLink href="#" (click)="clearLoadedPage($event)">
+              Detach page content
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="flex gap-10 flex-1">
+      <aside hlmEmpty class="border border-dashed max-w-xs bg-accent/50">
+        <div hlmEmptyContent>
+          <ng-template appSideBarOutlet> Default Sidebar</ng-template>
+        </div>
+      </aside>
+      <main hlmEmpty class="border border-dashed bg-accent/50">
+        <div hlmEmptyContent>
+          <ng-template #main> Default Main Content </ng-template>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer class="border border-dashed">
+    <div hlmEmpty class="bg-accent/50">
+      <div hlmEmptyContent>
+        <ng-template appFooterOutlet> Default Footer Content </ng-template>
+      </div>
+    </div>
+  </footer>
+</div>
