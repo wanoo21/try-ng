@@ -8,53 +8,55 @@
 @import '@spartan-ng/brain/hlm-tailwind-preset.css';
 
 :root {
-  color-scheme: light dark;
+    /*color-scheme: light dark;*/
 
-  --font-sans: 'Inter', sans-serif;
+    color-scheme: dark only;
 
-  --background: light-dark(oklch(1 0 0), oklch(0.145 0 0));
-  --foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
-  --card: light-dark(oklch(1 0 0), oklch(0.205 0 0));
-  --card-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
-  --popover: light-dark(oklch(1 0 0), oklch(0.205 0 0));
-  --popover-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
-  --primary: light-dark(oklch(0.205 0 0), oklch(0.922 0 0));
-  --primary-foreground: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
-  --secondary: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
-  --secondary-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
-  --muted: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
-  --muted-foreground: light-dark(oklch(0.556 0 0), oklch(0.708 0 0));
-  --accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
-  --accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
-  --destructive: light-dark(
-    oklch(0.577 0.245 27.325),
-    oklch(0.704 0.191 22.216)
-  );
-  --border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 10%));
-  --input: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 15%));
-  --ring: light-dark(oklch(0.708 0 0), oklch(0.556 0 0));
-  --radius: 0.625rem;
-  --sidebar: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
-  --sidebar-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
-  --sidebar-primary: light-dark(oklch(0.205 0 0), oklch(0.488 0.243 264.376));
-  --sidebar-primary-foreground: light-dark(oklch(0.985 0 0), oklch(0.985 0 0));
-  --sidebar-accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
-  --sidebar-accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
-  --sidebar-border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 10%));
-  --sidebar-ring: light-dark(oklch(0.708 0 0), oklch(0.556 0 0));
+    --font-sans: 'Inter', sans-serif;
+
+    --background: light-dark(oklch(1 0 0), oklch(0.145 0 0));
+    --foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+    --card: light-dark(oklch(1 0 0), oklch(0.205 0 0));
+    --card-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+    --popover: light-dark(oklch(1 0 0), oklch(0.205 0 0));
+    --popover-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+    --primary: light-dark(oklch(0.205 0 0), oklch(0.922 0 0));
+    --primary-foreground: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
+    --secondary: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+    --secondary-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+    --muted: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+    --muted-foreground: light-dark(oklch(0.556 0 0), oklch(0.708 0 0));
+    --accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+    --accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+    --destructive: light-dark(
+            oklch(0.577 0.245 27.325),
+            oklch(0.704 0.191 22.216)
+    );
+    --border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 10%));
+    --input: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 15%));
+    --ring: light-dark(oklch(0.708 0 0), oklch(0.556 0 0));
+    --radius: 0.625rem;
+    --sidebar: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
+    --sidebar-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+    --sidebar-primary: light-dark(oklch(0.205 0 0), oklch(0.488 0.243 264.376));
+    --sidebar-primary-foreground: light-dark(oklch(0.985 0 0), oklch(0.985 0 0));
+    --sidebar-accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+    --sidebar-accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+    --sidebar-border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 10%));
+    --sidebar-ring: light-dark(oklch(0.708 0 0), oklch(0.556 0 0));
 }
 
 /* No idea why would you want to do this, but it's here */
 :root.dark {
-  color-scheme: dark;
+    color-scheme: dark;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+    * {
+        @apply border-border outline-ring/50;
+    }
 
-  body {
-    @apply bg-background text-foreground;
-  }
+    body {
+        @apply bg-background text-foreground;
+    }
 }

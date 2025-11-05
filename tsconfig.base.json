@@ -91,6 +91,15 @@
       ],
       "@try-ng/ui/skeleton": [
         "libs/ui/ui-skeleton-helm/src/index.ts"
+      ],
+      "@try-ng/ui/empty": [
+        "libs/ui/ui-empty-helm/src/index.ts"
+      ],
+      "@try-ng/ui/navigation-menu": [
+        "libs/ui/ui-navigation-menu-helm/src/index.ts"
+      ],
+      "@try-ng/ui/avatar": [
+        "libs/ui/ui-avatar-helm/src/index.ts"
       ]
     }
   },

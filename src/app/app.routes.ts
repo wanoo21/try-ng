@@ -9,4 +9,8 @@ export const appRoutes: Route[] = [
     path: 'signal-form',
     loadComponent: () => import('./signal-form/signal-form'),
   },
+  {
+    path: 'cdk-portal',
+    loadComponent: () => import('./cdk-portal/portal'),
+  }
 ];

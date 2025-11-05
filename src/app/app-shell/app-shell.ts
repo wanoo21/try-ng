@@ -31,6 +31,11 @@ export default class AppShell {
       description: 'A form built with Angular Signals.',
       href: '/signal-form',
     },
+    {
+      title: 'CDK Portal',
+      description: 'A demo of Angular CDK Portals.',
+      href: '/cdk-portal',
+    }
   ]);
 
   readonly filteredFeatures = computed(() =>
